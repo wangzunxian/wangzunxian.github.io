@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      自定义UITextView | 守候 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="WX">
+    
+    
+
+    <meta name="description" content="自定义textView，实现placeholder，并且可设定限制输入字符数">
+<meta property="og:type" content="article">
+<meta property="og:title" content="自定义UITextView | 守候">
+<meta property="og:url" content="http://wangzunxian.github.io/2016/07/08/自定义UITextView/index.html">
+<meta property="og:site_name" content="守候">
+<meta property="og:description" content="自定义textView，实现placeholder，并且可设定限制输入字符数">
+<meta property="og:updated_time" content="2016-07-08T13:44:28.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="自定义UITextView | 守候">
+<meta name="twitter:description" content="自定义textView，实现placeholder，并且可设定限制输入字符数">
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="/favicon.png">
+    
+    <link rel="stylesheet" href="/css/uno.css">
+    <link rel="stylesheet" href="/css/highlight.css">
+    <link rel="stylesheet" href="/css/archive.css">
+    <link rel="stylesheet" href="/css/china-social-icon.css">
+
+</head>
+<body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+  
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+        <a href="/" title="link to homepage for 守候"><img src="/images/logo.png" width="80" alt="守候 logo" class="panel-cover__logo logo" /></a>
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">守候</a></h1>
+        <hr class="panel-cover__divider" />
+
+        
+        <p class="panel-cover__description">
+          如果你想要更多，你得对自己要求更多
+        </p>
+        </br>
+        
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">首页</a></li>
+              
+                
+                <li class="navigation__item"><a href="/about" title="" class="">关于</a></li>
+              
+                
+                <li class="navigation__item"><a href="/archive" title="" class="">归档</a></li>
+              
+
+            </ul>
+          </nav>
+
+          <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+-------------------------------->
+
+<!-- add social info here -->
+
+
+
+<nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+
+    
+      <!-- Github -->
+      <li class="navigation__item">
+        <a href="https://github.com/someus" title="Huno on GitHub">
+          <i class='icon icon-social-github'></i>
+          <span class="label">GitHub</span>
+        </a>
+      </li>
+    
+
+    <!-- China social icon -->
+    <!--
+    
+      <li class="navigation__item">
+        <a href="" title="">
+          <i class='icon cs-icon-douban'></i>
+          <span class="label">Douban</span>
+        </a>
+      </li>
+
+      <li class="navigation__item">
+        <a href="" title="">
+          <i class='icon cs-icon-weibo'></i>
+          <span class="label">Weibo</span>
+        </a>
+      </li>
+
+    -->
+
+
+
+  </ul>
+</nav>
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+    
+    <h1 class="post-title">自定义UITextView</h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2016 7月8, 周五 晚上 9:24" class="post-meta__date date">2016 7月8, 周五 晚上 9:24</time> 
+
+      <span class="post-meta__tags tags">
+
+          
+
+          
+
+      </span>
+    </div>
+    
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <ol>
+<li><p>自定义控件的头文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">#import &lt;UIKit/UIKit.h&gt;</div><div class="line"></div><div class="line">@interface WxCustomTextView : UITextView &lt;UITextViewDelegate&gt;</div><div class="line"></div><div class="line">//设置默认提示</div><div class="line">@property(nonatomic,strong) NSString *placeholder;</div><div class="line"></div><div class="line">//设置限制输入的字数，若未设置则不限制</div><div class="line">@property(nonatomic,assign) int limitWordsCount;</div><div class="line"></div><div class="line">@property(nonatomic,strong) UILabel *placeholderLabel;</div><div class="line"></div><div class="line">@property(nonatomic,strong) UILabel *wordsCountLabel;</div><div class="line"></div><div class="line">@end</div></pre></td></tr></table></figure>
+</li>
+<li><p>自定义控件的.m文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div></pre></td><td class="code"><pre><div class="line">#import &quot;WxCustomTextView.h&quot;</div><div class="line"></div><div class="line">@interface WxCustomTextView () &#123;</div><div class="line">    NSArray *wordsCountLabelConstraintsX;</div><div class="line">    NSArray *wordsCountLabelConstraintsY;</div><div class="line">&#125;</div><div class="line"></div><div class="line">@end</div><div class="line"></div><div class="line">@implementation WxCustomTextView</div><div class="line"></div><div class="line">- (instancetype)initWithFrame:(CGRect)frame &#123;</div><div class="line">    if (self = [super initWithFrame:frame]) &#123;</div><div class="line">        </div><div class="line">        self.delegate = self;</div><div class="line">        self.font = [UIFont systemFontOfSize:18];</div><div class="line">        //取消连续布局属性，禁止自动重置滑动</div><div class="line">        self.layoutManager.allowsNonContiguousLayout = NO;</div><div class="line">        </div><div class="line">        UILabel *placeholderLabel = [[UILabel alloc] init];</div><div class="line">        [placeholderLabel setTranslatesAutoresizingMaskIntoConstraints:NO];</div><div class="line">        placeholderLabel.textColor = [UIColor lightGrayColor];</div><div class="line">        placeholderLabel.numberOfLines = 0;</div><div class="line">        [self addSubview:placeholderLabel];</div><div class="line">        _placeholderLabel = placeholderLabel;</div><div class="line">        </div><div class="line">        NSDictionary *labelVflDict = NSDictionaryOfVariableBindings(placeholderLabel);</div><div class="line">        NSString *labelVfl1 = @&quot;|-5-[placeholderLabel]&quot;;</div><div class="line">        NSString *labelVfl2 = @&quot;V:|-8-[placeholderLabel]&quot;;</div><div class="line">        [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:labelVfl1 options:0 metrics:nil views:labelVflDict]];</div><div class="line">        [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:labelVfl2 options:0 metrics:nil views:labelVflDict]];</div><div class="line">        </div><div class="line">        UILabel *wordsCountLabel = [[UILabel alloc] init];</div><div class="line">        [wordsCountLabel setTranslatesAutoresizingMaskIntoConstraints:NO];</div><div class="line">        wordsCountLabel.font = [UIFont systemFontOfSize:12];</div><div class="line">        wordsCountLabel.textColor = [UIColor lightGrayColor];</div><div class="line">        wordsCountLabel.textAlignment = NSTextAlignmentRight;</div><div class="line">        [self addSubview:wordsCountLabel];</div><div class="line">        _wordsCountLabel = wordsCountLabel;</div><div class="line">        </div><div class="line">        NSDictionary *wordsCountLabelVflDict = NSDictionaryOfVariableBindings(wordsCountLabel);</div><div class="line">        NSString *wordsCountLabelVfl1 = @&quot;|-100-[wordsCountLabel(40)]&quot;;</div><div class="line">        NSString *wordsCountLabelVfl2 = @&quot;V:|-0-[wordsCountLabel(20)]&quot;;</div><div class="line">        wordsCountLabelConstraintsX = [NSLayoutConstraint constraintsWithVisualFormat:wordsCountLabelVfl1 options:0 metrics:nil views:wordsCountLabelVflDict];</div><div class="line">        [self addConstraints:wordsCountLabelConstraintsX];</div><div class="line">        wordsCountLabelConstraintsY = [NSLayoutConstraint constraintsWithVisualFormat:wordsCountLabelVfl2 options:0 metrics:nil views:wordsCountLabelVflDict];</div><div class="line">        [self addConstraints:wordsCountLabelConstraintsY];</div><div class="line">    &#125;</div><div class="line">    return self;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (void)setPlaceholder:(NSString *)placeholder &#123;</div><div class="line">    _placeholder = placeholder;</div><div class="line">    _placeholderLabel.text = placeholder;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (void)setPlaceholderLabel:(UILabel *)placeholderLabel &#123;</div><div class="line">    _placeholderLabel = placeholderLabel;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (void)setWordsCountLabel:(UILabel *)wordsCountLabel &#123;</div><div class="line">    _wordsCountLabel = wordsCountLabel;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (void)setLimitWordsCount:(int)limitWordsCount &#123;</div><div class="line">    _limitWordsCount = limitWordsCount;</div><div class="line">    if (_limitWordsCount &gt; 0) &#123;</div><div class="line">        _wordsCountLabel.text = [NSString stringWithFormat:@&quot;0/%d&quot;,limitWordsCount];</div><div class="line">    &#125;else&#123;</div><div class="line">        _wordsCountLabel.hidden = YES;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (void)setFont:(UIFont *)font &#123;</div><div class="line">    //修改UITextView的参数时，要调用super方法</div><div class="line">    [super setFont:font];</div><div class="line">    _placeholderLabel.font = font;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (void)layoutSubviews &#123;</div><div class="line">    [super layoutSubviews];</div><div class="line">    </div><div class="line">    //设置子控件</div><div class="line">    [self updateCountLabelConstraints];</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (void)updateCountLabelConstraints &#123;</div><div class="line">    [self removeConstraints:wordsCountLabelConstraintsX];</div><div class="line">    [self removeConstraints:wordsCountLabelConstraintsY];</div><div class="line">    NSDictionary *wordsCountLabelVflDict = NSDictionaryOfVariableBindings(_wordsCountLabel);</div><div class="line">    NSDictionary *wordsCountLabelMetrics = @&#123;@&quot;width&quot;:@(self.frame.size.width-85),@&quot;height&quot;:@(self.frame.size.height-20 + self.contentOffset.y)&#125;;</div><div class="line">    NSString *wordsCountLabelVfl1 = @&quot;|-(width)-[_wordsCountLabel(80)]&quot;;</div><div class="line">    NSString *wordsCountLabelVfl2 = @&quot;V:|-(height)-[_wordsCountLabel(20)]&quot;;</div><div class="line">    wordsCountLabelConstraintsX = [NSLayoutConstraint constraintsWithVisualFormat:wordsCountLabelVfl1 options:0 metrics:wordsCountLabelMetrics views:wordsCountLabelVflDict];</div><div class="line">    [self addConstraints:wordsCountLabelConstraintsX];</div><div class="line">    wordsCountLabelConstraintsY = [NSLayoutConstraint constraintsWithVisualFormat:wordsCountLabelVfl2 options:0 metrics:wordsCountLabelMetrics views:wordsCountLabelVflDict];</div><div class="line">    [self addConstraints:wordsCountLabelConstraintsY];</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (void)textViewDidChange:(UITextView *)textView &#123;</div><div class="line">    if (self.text.length == 0) &#123;</div><div class="line">        _placeholderLabel.hidden = NO;</div><div class="line">    &#125;else&#123;</div><div class="line">        _placeholderLabel.hidden = YES;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    if (_limitWordsCount &gt; 0) &#123;</div><div class="line">        NSString *toString = textView.text;</div><div class="line">        //键盘输入模式</div><div class="line">        NSString *language = [[textView textInputMode] primaryLanguage];</div><div class="line">        if ([language isEqualToString:@&quot;zh-Hans&quot;]) &#123;</div><div class="line">            UITextRange *selectedRange = [textView markedTextRange];</div><div class="line">            //获取高亮部分</div><div class="line">            UITextPosition *position = [textView positionFromPosition:selectedRange.start offset:0];</div><div class="line">            //计算高亮选择的字，对已经输入的文字进行统计和限制</div><div class="line">            if (!position) &#123;</div><div class="line">                if (toString.length &gt; _limitWordsCount) &#123;</div><div class="line">                    textView.text = [toString substringToIndex:_limitWordsCount];</div><div class="line">                &#125;</div><div class="line">                _wordsCountLabel.text = [NSString stringWithFormat:@&quot;%lu/%d&quot;, (unsigned long)textView.text.length, _limitWordsCount];</div><div class="line">            &#125;</div><div class="line">        &#125;else&#123;</div><div class="line">            if (toString.length &gt; _limitWordsCount) &#123;</div><div class="line">                textView.text = [toString substringToIndex:_limitWordsCount];</div><div class="line">            &#125;</div><div class="line">            _wordsCountLabel.text = [NSString stringWithFormat:@&quot;%lu/%d&quot;, (unsigned long)textView.text.length, _limitWordsCount];</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></li>
+</ol>
+
+  </section>
+
+  
+  
+
+<section class="post-comments">
+
+    <div class="ds-thread" data-thread-key="2016/07/08/自定义UITextView/"></div>
+
+    <script type="text/javascript">
+      var duoshuoQuery = {short_name:"wangzunxian"};
+      (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+        || document.getElementsByTagName('body')[0]).appendChild(ds);
+      })();
+    </script> 
+
+</section>
+
+
+</article>
+
+
+            <footer class="footer">
+
+    <span class="footer__copyright">&copy; 2014-2015. | 由<a href="https://hexo.io/">Hexo</a>强力驱动 | 主题<a href="https://github.com/someus/huno">Huno</a></span>
+    
+</footer>
+        </div>
+    </div>
+
+    <!-- js files -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+    
+
+    
+
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript"> 
+        $(document).ready(function(){
+            MathJax.Hub.Config({ 
+                tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
+            });
+        });
+    </script>
+
+
+    
+
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+    
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
+</body>
+</html>
